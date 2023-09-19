@@ -67,6 +67,27 @@
         opacity: 0.5;
         margin: 20px;
       }
+      .musei {
+        position: relative;
+      }
+      .siti {
+        position: relative;
+      }
+
+      a.musei_link {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      a.siti_link {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
       /* media query */
       @media (max-width: 768px) {
         .header-section {
@@ -89,7 +110,7 @@
       <div class="container">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Home</a>
+            <a class="nav-link text-white" href="./index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Progetto</a>
@@ -105,16 +126,16 @@
     </nav>
     <div class="container py-5">
       <div class="row">
-        <a href="./musei.html">
           <div class="col-md-6">
-            <div class="musei"></div>
+            <div class="musei">
+              <a href="./musei.html" class="musei_link"></a>
+            </div>
           </div>
-        </a>
-        <a href="./siti.html">
           <div class="col-md-6">
-            <div class="siti"></div>
+            <div class="siti">
+              <a href="./siti.html"  class="siti_link"></a>
+            </div>
           </div>
-        </a>
       </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

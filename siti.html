@@ -5,21 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Siti Archeologici</title>
     <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"
-  />
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./json/abruzzo.js"></script>
+    <script src="./json/basilicata.js"></script>
+    <script src="./json/calabria.js"></script>
+    <script src="./json/campania.js"></script>
+    <script src="./json/emilia.js"></script>
+    <script src="./json/friuli.js"></script>
+    <script src="./json/lazio.js"></script>
+    <script src="./json/liguria.js"></script>
+    <script src="./json/lombardia.js"></script>
+    <script src="./json/marche.js"></script>
+    <script src="./json/molise.js"></script>
+    <script src="./json/piemonte.js"></script>
+    <script src="./json/puglia.js"></script>
+    <script src="./json/sardegna.js"></script>
+    <script src="./json/sicilia.js"></script>
+    <script src="./json/toscana.js"></script>
+    <script src="./json/trentino.js"></script>
+    <script src="./json/umbria.js"></script>
+    <script src="./json/veneto.js"></script>
     <style>
       .header-section {
         background-image: url("img/header.jpeg");
@@ -80,28 +103,28 @@
         margin: 20px;
       }
       /* media query */
-        @media (max-width: 768px) {
-            .header-section {
-        background-image: url("img/header.jpeg");
-        background-size: cover;
-        background-position: center;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+      @media (max-width: 768px) {
+        .header-section {
+          background-image: url("img/header.jpeg");
+          background-size: cover;
+          background-position: center;
+          height: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
+      }
     </style>
   </head>
   <body>
     <header class="header-section text-white">
       <div class="container"></div>
     </header>
-    <nav class=" navbar navbar-expand-lg bg-secondary">
+    <nav class="navbar navbar-expand-lg bg-secondary">
       <div class="container">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Home</a>
+            <a class="nav-link text-white" href="./index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Progetto</a>
@@ -116,41 +139,47 @@
       </div>
     </nav>
     <div class="container py-5">
-      <div class="row">
-        <div>
-            <label for="filter-select">Filtra per datazione</label>
-            <select id="filter-select">
+        <div class="row">
+            <div class="col">
+          <label for="filter-select">Filtra per datazione</label>
+          <select id="filter-select" class="form-control">
+            <option value="all">Tutti</option>
+            <option value="inferiore">Paleolitico inferiore</option>
+            <option value="medio">Paleolitico medio</option>
+            <option value="superiore">Paleolitico superiore</option>
+          </select>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            <label for="filter-regione">Filtra per regione</label>
+            <select id="filter-regione" class="form-control">
               <option value="all">Tutti</option>
-              <option value="inferiore">Paleolitico inferiore</option>
-              <option value="medio">Paleolitico medio</option>
-              <option value="superiore">Paleolitico superiore</option>
+              <option value="abruzzo">Abruzzo</option>
+              <option value="basilicata">Basilicata</option>
+              <option value="calabria">Calabria</option>
+              <option value="campania">Campania</option>
+              <option value="emilia">Emilia-Romagna</option>
+              <option value="friuli">Friuli-Venezia Giulia</option>
+              <option value="lazio">Lazio</option>
+              <option value="liguria">Liguria</option>
+              <option value="lombardia">Lombardia</option>
+              <option value="marche">Marche</option>
+              <option value="molise">Molise</option>
+              <option value="piemonte">Piemonte</option>
+              <option value="puglia">Puglia</option>
+              <option value="sardegna">Sardegna</option>
+              <option value="sicilia">Sicilia</option>
+              <option value="toscana">Toscana</option>
+              <option value="trentino">Trentino-Alto Adige</option>
+              <option value="umbria">Umbria</option>
+              <option value="veneto">Veneto</option>
             </select>
-          </div>
-          <div id="map" style="height: 400px"></div>
-          <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
-          <script src="./json/abruzzo.js"></script>
-          <script src="./json/basilicata.js"></script>
-          <script src="./json/calabria.js"></script>
-          <script src="./json/campania.js"></script>
-          <script src="./json/emilia.js"></script>
-          <script src="./json/friuli.js"></script>
-          <script src="./json/lazio.js"></script>
-          <script src="./json/liguria.js"></script>
-          <script src="./json/lombardia.js"></script>
-          <script src="./json/marche.js"></script>
-          <script src="./json/molise.js"></script>
-          <script src="./json/piemonte.js"></script>
-          <script src="./json/puglia.js"></script>
-          <script src="./json/sardegna.js"></script>
-          <script src="./json/sicilia.js"></script>
-          <script src="./json/toscana.js"></script>
-          <script src="./json/trentino.js"></script>
-          <script src="./json/umbria.js"></script>
-          <script src="./json/veneto.js"></script>
-          <script src="./js/map.js"></script>
-      </div>
+            </div>
+        </div>
+        <br>
+        <div id="map" style="height: 400px"></div>
     </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./js/map.js"></script>
   </body>
 </html>
