@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Archeologia</title>
+    <title>Siti Archeologici</title>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"
+  />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -68,24 +80,24 @@
         margin: 20px;
       }
       /* media query */
-      @media (max-width: 768px) {
-        .header-section {
-          background-image: url("img/header.jpeg");
-          background-size: cover;
-          background-position: center;
-          height: 200px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+        @media (max-width: 768px) {
+            .header-section {
+        background-image: url("img/header.jpeg");
+        background-size: cover;
+        background-position: center;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
+        }
     </style>
   </head>
   <body>
     <header class="header-section text-white">
       <div class="container"></div>
     </header>
-    <nav class="navbar navbar-expand-lg bg-secondary">
+    <nav class=" navbar navbar-expand-lg bg-secondary">
       <div class="container">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
@@ -105,16 +117,38 @@
     </nav>
     <div class="container py-5">
       <div class="row">
-        <a href="./musei.html">
-          <div class="col-md-6">
-            <div class="musei"></div>
+        <div>
+            <label for="filter-select">Filtra per datazione</label>
+            <select id="filter-select">
+              <option value="all">Tutti</option>
+              <option value="inferiore">Paleolitico inferiore</option>
+              <option value="medio">Paleolitico medio</option>
+              <option value="superiore">Paleolitico superiore</option>
+            </select>
           </div>
-        </a>
-        <a href="./siti.html">
-          <div class="col-md-6">
-            <div class="siti"></div>
-          </div>
-        </a>
+          <div id="map" style="height: 400px"></div>
+          <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+          <script src="./json/abruzzo.js"></script>
+          <script src="./json/basilicata.js"></script>
+          <script src="./json/calabria.js"></script>
+          <script src="./json/campania.js"></script>
+          <script src="./json/emilia.js"></script>
+          <script src="./json/friuli.js"></script>
+          <script src="./json/lazio.js"></script>
+          <script src="./json/liguria.js"></script>
+          <script src="./json/lombardia.js"></script>
+          <script src="./json/marche.js"></script>
+          <script src="./json/molise.js"></script>
+          <script src="./json/piemonte.js"></script>
+          <script src="./json/puglia.js"></script>
+          <script src="./json/sardegna.js"></script>
+          <script src="./json/sicilia.js"></script>
+          <script src="./json/toscana.js"></script>
+          <script src="./json/trentino.js"></script>
+          <script src="./json/umbria.js"></script>
+          <script src="./json/veneto.js"></script>
+          <script src="./js/map.js"></script>
       </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
