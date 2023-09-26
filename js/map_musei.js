@@ -100,13 +100,19 @@ function filterMarkers() {
   markers.clearLayers();
   markersData.forEach((markerInfo) => {
     markerInfo.TEL = fixItalianPhoneNumber(markerInfo.TEL);
+    markerInfo.SITO = markerInfo.SITO.replace("http://", "");
+    markerInfo.SITO = markerInfo.SITO.replace("https://", "");
       const marker = L.marker([
         markerInfo.COORDINATE.split(",")[0],
         markerInfo.COORDINATE.split(",")[1],
       ]);
       //add popup
       marker.bindPopup(
-        `<b>${markerInfo.NOME}</b><br>${markerInfo.TEL}`
+        `<b>${markerInfo.NOME}</b>
+        <br>
+        ${markerInfo.TEL}
+        <br>
+        <a href="https://${markerInfo.SITO}" target="_blank">${markerInfo.SITO}</a>`
       );
       markers.addLayer(marker);
   });
