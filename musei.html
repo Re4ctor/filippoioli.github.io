@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Siti Archeologici</title>
+    <title>Musei</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -24,25 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="./json/siti/abruzzo.js"></script>
-    <script src="./json/siti/basilicata.js"></script>
-    <script src="./json/siti/calabria.js"></script>
-    <script src="./json/siti/campania.js"></script>
-    <script src="./json/siti/emilia.js"></script>
-    <script src="./json/siti/friuli.js"></script>
-    <script src="./json/siti/lazio.js"></script>
-    <script src="./json/siti/liguria.js"></script>
-    <script src="./json/siti/lombardia.js"></script>
-    <script src="./json/siti/marche.js"></script>
-    <script src="./json/siti/molise.js"></script>
-    <script src="./json/siti/piemonte.js"></script>
-    <script src="./json/siti/puglia.js"></script>
-    <script src="./json/siti/sardegna.js"></script>
-    <script src="./json/siti/sicilia.js"></script>
-    <script src="./json/siti/toscana.js"></script>
-    <script src="./json/siti/trentino.js"></script>
-    <script src="./json/siti/umbria.js"></script>
-    <script src="./json/siti/veneto.js"></script>
+    <script src="./json/musei/musei.js"></script>
     <style>
       .header-section {
         background-image: url("img/header.jpeg");
@@ -141,17 +123,6 @@
     <div class="container py-5">
         <div class="row">
             <div class="col">
-          <label for="filter-select">Filtra per datazione</label>
-          <select id="filter-select" class="form-control">
-            <option value="all">Tutti</option>
-            <option value="inferiore">Paleolitico inferiore</option>
-            <option value="medio">Paleolitico medio</option>
-            <option value="superiore">Paleolitico superiore</option>
-          </select>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col">
             <label for="filter-regione">Filtra per regione</label>
             <select id="filter-regione" class="form-control">
               <option value="all">Tutti</option>
@@ -180,6 +151,6 @@
         <br>
         <div id="map" style="height: 400px"></div>
     </div>
-    <script src="./js/map.js"></script>
+    <script src="./js/map_musei.js"></script>
   </body>
 </html>
